@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+</head>
+<body>
+<form action="" method="" id="form">
+	{% csrf_token %}
+
+	<input type="text" name="name" id="name">
+	<input type="text" name="sername" id="sername">
+
+	<button type="button" onclick="getData()">submit</button>
+</form>
+<ol>
+	
+</ol>
+<script>
+
+function getData(){
+$.ajax({
+  method: "POST",
+  url: "{% url 'homepage' %}",
+  data: $('#form').serialize()
+})
+  .done(function( msg ) {
+    alert( "Data Saved: " + msg );
+    $('ol').append(msg+"<br>");
+});
+}
+</script>
+</body>
+</html>
