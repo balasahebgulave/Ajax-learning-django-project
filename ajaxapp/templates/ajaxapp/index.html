@@ -26,8 +26,10 @@ $.ajax({
   data: $('#form').serialize()
 })
   .done(function( msg ) {
-    alert( "Data Saved: " + msg );
-    $('ol').append(msg+"<br>");
+  	var data = JSON.parse(msg)
+  	console.log(data);
+    alert( "Data Saved: " + data.name +" "+ data.sername );
+    $('ol').append(data.name +" "+ data.sername +"<br>");
 });
 }
 </script>
